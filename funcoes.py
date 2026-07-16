@@ -30,7 +30,7 @@ def treino_KNN(X_train_scaled, y_train, X_test_scaled, y_test, valores):
 def comparar_resultados_KNN(lista_KNN_scaled, lista_KNN_scaled_smoted):
     for resultado1, resultado2 in zip(lista_KNN_scaled, lista_KNN_scaled_smoted):
 
-        print(f"K = {resultado1['k']:<3} {'SCALED':-^50} {'SMOTED':-^50}")
+        print(f"K = {resultado1['k']:<3} {'SCALED':-^50} { 'SMOTED':-^50}")
 
         for linha1, linha2 in zip(
             resultado1['classification_report'].splitlines(),
@@ -44,11 +44,13 @@ def treino_DecisionTree(X_train, y_train, X_test, y_test, depth):
     lista_tree = []
     if depth.__len__() > 0:
         for i in depth:
-
+            print(f"\nTreinando o algoritmo Decision Tree (Profundidade {i})")
             tree = DecisionTreeClassifier(
                 max_depth=i,
                 random_state=42,
-                criterion='gini'  # ou 'entropy'
+                min_samples_leaf = 5,
+                min_samples_split = 10,
+                criterion='gini' 
             )
 
             tree.fit(X_train, y_train)
@@ -61,8 +63,25 @@ def treino_DecisionTree(X_train, y_train, X_test, y_test, depth):
 
             lista_tree.append({
                 'max_depth': i,
+                'model': tree,
                 'classification_report': classification_report(y_test, predict_tree)
             })
         return lista_tree
     else:
         return print("A lista de profundidades está vazia. Por favor, forneça uma lista válida de profundidades para treinar o modelo Decision Tree.")
+    
+def comparar_resultados_KNN_DECISIONTREE(lista_KNN_scaled, lista_tree):
+    for resultado1, resultado2 in zip(lista_KNN_scaled, lista_tree):
+        if resultado2['max_depth'] == None:
+            depth = 'ilimitada'
+        else:
+            depth = resultado2['max_depth']
+        print(f"K = {resultado1['k']:<3} {'KNN_SCALED':-^50} { 'DECISION_TREE':-^50} Depth = {depth}")
+
+        for linha1, linha2 in zip(
+            resultado1['classification_report'].splitlines(),
+            resultado2['classification_report'].splitlines()
+        ):
+            print(f"{linha1:<60} {linha2}")
+
+        print("-" * 120)
