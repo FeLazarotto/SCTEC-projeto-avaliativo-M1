@@ -21,7 +21,8 @@ def treino_KNN(X_train_scaled, y_train, X_test_scaled, y_test, valores):
             lista_KNN.append({
                 'k': k,
                 'classification_report': classification_report(y_test, predict_knn),
-                'classification_report_dict': classification_report(y_test, predict_knn, output_dict=True)
+                'classification_report_dict': classification_report(y_test, predict_knn, output_dict=True),
+                'y_pred': predict_knn
             })
         return lista_KNN
     else:
@@ -64,7 +65,8 @@ def treino_DecisionTree(X_train, y_train, X_test, y_test, depth):
             lista_tree.append({
                 'max_depth': i,
                 'model': tree,
-                'classification_report': classification_report(y_test, predict_tree)
+                'classification_report': classification_report(y_test, predict_tree),
+                'y_pred': predict_tree
             })
         return lista_tree
     else:
