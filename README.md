@@ -2,7 +2,7 @@
 
 ### Projeto desenvolvido para o Módulo 1 do programa SCTEC, com foco em Análise Exploratória de Dados (EDA) e Machine Learning para previsão de evasão (Churn) de clientes de uma plataforma de e-commerce.
 
-1. ## Objetivo
+## 1. Objetivo
 
 ### O objetivo deste projeto é identificar clientes com maior probabilidade de cancelar seu relacionamento com a empresa (Churn), utilizando técnicas de Ciência de Dados e Machine Learning.
 
@@ -15,7 +15,7 @@
     Balanceamento das classes utilizando SMOTE;
     Treinamento e comparação de modelos de Machine Learning.
 
-2. ## Dataset
+## 2. Dataset
 
 ### O conjunto de dados contém informações comportamentais de clientes de um e-commerce, incluindo características como:
 
@@ -43,9 +43,9 @@
     Imbalanced-Learn (SMOTE)
     Jupyter Notebook
 
-3. ## Etapas do Projeto
+## 3. Etapas do Projeto
 
-    1. Análise Exploratória (EDA)
+###     3.1. Análise Exploratória (EDA)
         Foram analisadas diversas relações entre as variáveis para compreender o comportamento dos clientes.
 
         Exemplos:
@@ -55,23 +55,23 @@
         Tempo de permanência
         Cashback
 
-    2. Tratamento dos dados
+###     3.2. Tratamento dos dados
         Remoção de inconsistências
         Tratamento de valores ausentes
         Tratamento de Outliers
 
-    3. Engenharia de Features
+###     3.3. Engenharia de Features
 
         Foi criada uma nova variável CashBackByOrder que representa o cashback médio recebido por pedido:
         CashBackByOrder = CashbackAmount / OrderCount
     
-    4. Separação, Balanceamento e Escalonamento Seguro
+###     3.4. Separação, Balanceamento e Escalonamento Seguro
 
         Encoding
         Balanceamento de Classes
         Escalonamento Seguro
 
-    5. Modelagem e Validação 
+###     3.5. Modelagem e Validação 
 
         Otimização do KNN com o parâmetro n_neighbors (K) testado com 5 valores distintos.
         Otimização da Árvore com o parâmetro max_depth testado com 5 valores distintos.
@@ -90,14 +90,14 @@
             Comparação de desempenho
 
 
-    6. Avaliação e Veredito de Negócios
+###     3.6. Avaliação e Veredito de Negócios
 
         Visualização do relatório Classification Report e Matriz de Confusão
         A escolha do modelo priorizou a redução de falsos negativos, uma vez que classificar um cliente que irá abandonar a plataforma como não churn pode gerar maior impacto financeiro para o negócio.
 
 
-4. ## Estrutura do Projeto
-
+## 4. Estrutura do Projeto
+```
     SCTEC-projeto-avaliativo-M1
     │
     ├── dataset/
@@ -106,10 +106,10 @@
     ├── SCTEC-projeto-avaliativo-M1.ipynb
     ├── funcoes.py
     └── README.md
+```
 
 
-
-5. ## Como executar
+## 5. Como executar
 
     git clone https://github.com/FeLazarotto/SCTEC-projeto-avaliativo-M1.git
 
@@ -118,7 +118,8 @@
     pip install -r requirements.txt
 
     Abra o notebook principal utilizando Jupyter Notebook ou VS Code.
-6. Aprendizados
+    
+## 6. Aprendizados
 
     Durante o desenvolvimento deste projeto foi possível aplicar conceitos de:
 
